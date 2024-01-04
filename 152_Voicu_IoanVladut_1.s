@@ -10,8 +10,8 @@
 	format_scanf: .asciz "%ld"
 	format_scanf_str: .asciz "%s"
 	format_printf: .asciz "%ld "
-	format_printf_hex: .asciz "%X"
-	format_printf_hex_start: .asciz "0x%X"
+	format_printf_hex: .asciz "%02X"
+	format_printf_hex_start: .asciz "0x%02X"
 	format_printf_eol: .asciz "%ld\n"
 	c_flag: .long 0
 	string: .space 30
