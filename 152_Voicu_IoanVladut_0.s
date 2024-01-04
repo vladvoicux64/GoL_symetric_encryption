@@ -9,7 +9,7 @@
 	mat_updt: .space 500
 	format_scanf: .asciz "%ld"
 	format_printf: .asciz "%ld "
-	format_printf_eol: .asciz "%ld\n"
+	format_printf_eol: .asciz "%ld \n"
 .text
 read_input:
 	# setup_stack:
