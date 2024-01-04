@@ -9,7 +9,7 @@
 	mat_updt: .space 500
 	format_scanf: .asciz "%ld"
 	format_printf: .asciz "%ld "
-	format_printf_eol: .asciz "%ld\n"
+	format_printf_eol: .asciz "%ld \n"
 	in: .asciz "in.txt"
 	out: .asciz "out.txt"
 	in_mode: .asciz "r"
