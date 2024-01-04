@@ -370,33 +370,32 @@ xor_crypt:
 		lea string, %edi
 		xor %edx, %edx
 		start_conv:
-			mov $2, %ecx
-			loopin:
-				cmpb $0, (%esi)
-				je add_null
-				xor %eax, %eax
-				mov (%esi), %al
-				cmp $65, %eax
-				jl num
-			char:
-				sub $55, %eax
-				jmp merge
-			num:		
-				sub $48, %eax
-			merge:
-				add %eax, %edx
-				cmp $16, %edx
-				jge place_char
-				shl $4, %edx
-				add $1, %esi
-				loop loopin
-				jmp start_conv	
-		place_char:
-			mov %dl, (%edi)
-			xor %edx, %edx
-			add $1, %esi
-			add $1, %edi
-			jmp start_conv
+                        mov $2, %ecx
+                        loopin:
+                                cmpb $0, (%esi)
+                                je add_null
+                                xor %eax, %eax
+                                mov (%esi), %al
+                                cmp $65, %eax
+                                jl num
+                        char:
+                                sub $55, %eax
+                                jmp merge
+                        num:
+                                sub $48, %eax
+                        merge:
+                                add %eax, %edx
+                                cmp $1, %ecx
+                                je place_char
+                                shl $4, %edx
+                                add $1, %esi
+                                loop loopin
+                place_char:
+                        mov %dl, (%edi)
+                        xor %edx, %edx
+                        add $1, %esi
+                        add $1, %edi
+                        jmp start_conv
 	add_null:
 		movb $0, (%edi)
 	apply_key:	
